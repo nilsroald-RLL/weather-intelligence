@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment (never commit real secrets)
+.env
+.env.local
+.env.*.local
+
+# Build output
+.next/
+out/
+build/
+dist/
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor and OS
+.vscode/
+.idea/
+.DS_Store
+
+# Supabase local
+supabase/.temp/
