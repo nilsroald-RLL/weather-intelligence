@@ -19,8 +19,8 @@ public commercial service.
 
 Create a mobile-first personal weather application for two fixed locations:
 
-- **Apartment** — display name **Leiligheten**, address Kongsveien 83C, Oslo
-- **Cabin** — display name **Hytta**, address Moltmyrvegen 39, Øyer
+- **Apartment**: display name **Leiligheten**, address Kongsveien 83C, Oslo
+- **Cabin**: display name **Hytta**, address Moltmyrvegen 39, Øyer
 
 The application shall display:
 

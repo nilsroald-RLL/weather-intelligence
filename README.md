@@ -19,11 +19,16 @@ from and honest about how confident it is.
 Based on how Yr and Storm have historically performed at this exact location and
 forecast horizon, what weather is most likely to occur?
 
-## Status
+## Current version and status
 
-Foundation and documentation stage. The application itself has not been built yet.
-See `docs/implementation-plan.md` for the phased plan and the definition of the
-first runnable vertical slice.
+**Version:** 0.1.0
+**Status:** Foundation and documentation stage. The application itself has not been
+built yet.
+
+The project moves forward one versioned iteration at a time. See `docs/roadmap.md`
+for the version plan and the release ritual, `docs/implementation-plan.md` for the
+phased plan and the first vertical slice, `docs/backlog.md` for what is done and
+what is next, and `CHANGELOG.md` for the history.
 
 ## Key ideas
 
@@ -46,8 +51,10 @@ first runnable vertical slice.
 | `CLAUDE.md` | Working guidance and hard rules for AI assistants |
 | `docs/product-spec.md` | The full, authoritative product and technical specification |
 | `docs/architecture.md` | Architecture decisions, repository layout, and data model |
+| `docs/roadmap.md` | Versioned roadmap, strategy, and the release ritual |
 | `docs/implementation-plan.md` | Delivery phases and the first vertical slice |
 | `docs/backlog.md` | Staged, prioritised task list |
+| `CHANGELOG.md` | History of what changed in each version |
 
 Further docs to be added during implementation:
 `docs/data-sources.md`, `docs/storm-data-source-investigation.md`,

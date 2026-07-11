@@ -106,9 +106,34 @@ The initial UI is in Norwegian. Keep documentation and code comments in English.
 Common labels: Nå, I dag, Time for time, 7 dager, Treffsikkerhet, Yr, Storm,
 Snitt, Tilpasset, Sikkerhet, Sist oppdatert, Faktisk vær, Varslet, Avvik.
 
+## Versioning and the release ritual
+
+The project ships one versioned iteration at a time. See `docs/roadmap.md` for the
+full version plan. Versioning is semantic-style: MINOR bumps are the normal unit of
+progress (for example 0.5.0 to 0.6.0), PATCH bumps are small fixes, and 1.0.0 is the
+accepted MVP.
+
+At the end of every iteration, follow this ritual so the repository stays clean and
+the next developer can pick up easily:
+
+1. Work on a branch named for the version, for example
+   `feature/v0.6-matching-and-horizons`.
+2. Build in small, focused commits, with tests alongside the code.
+3. Add a new version heading to `CHANGELOG.md` describing what changed.
+4. Tick the completed items in `docs/backlog.md`.
+5. Move the "Current version" and "Status" lines in `README.md` forward.
+6. Write or update any matching methodology doc under `docs/`.
+7. Open a pull request, review the diff, and merge to main.
+8. Tag the release (`git tag v0.6.0` then `git push --tags`).
+
+Do not skip the changelog, backlog, and README updates. They are part of finishing
+an iteration, not optional extras.
+
 ## Where to look
 
 - `docs/product-spec.md` is the full, authoritative specification.
+- `docs/roadmap.md` is the versioned roadmap and release ritual.
 - `docs/architecture.md` covers the architecture decisions and data model.
 - `docs/implementation-plan.md` covers the phases and the first vertical slice.
 - `docs/backlog.md` is the staged task list.
+- `CHANGELOG.md` is the history of what changed in each version.
