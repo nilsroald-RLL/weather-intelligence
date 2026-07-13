@@ -39,8 +39,8 @@ const envSchema = z
 
 export type Env = z.infer<typeof envSchema>;
 
-function loadEnv(): Env {
-  const parsed = envSchema.safeParse(process.env);
+export function parseEnv(source: Record<string, string | undefined> = process.env): Env {
+  const parsed = envSchema.safeParse(source);
 
   if (!parsed.success) {
     const issues = parsed.error.issues
@@ -56,4 +56,4 @@ function loadEnv(): Env {
 
 // Validated once, at import time. `instrumentation.ts` imports this module so
 // the check runs at server startup rather than lazily on the first request.
-export const env = loadEnv();
+export const env = parseEnv();
