@@ -24,17 +24,17 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 ### Project setup
 
-- [ ] Scaffold Next.js (App Router) with TypeScript and strict settings
-- [ ] Add Tailwind CSS and a lightweight component system (shadcn/ui)
-- [ ] Add ESLint, Prettier, and strict TypeScript config
-- [ ] Add the environment schema and validate it at startup
+- [x] Scaffold Next.js (App Router) with TypeScript and strict settings
+- [ ] Add Tailwind CSS and a lightweight component system (shadcn/ui) — Tailwind is in; shadcn/ui not added yet
+- [x] Add ESLint, Prettier, and strict TypeScript config
+- [x] Add the environment schema and validate it at startup
 - [ ] Add Vitest or Jest and a first smoke test
 - [ ] Add Playwright and a first end-to-end smoke test
 
 ### Database
 
-- [ ] Set up Supabase and migration tooling
-- [ ] Migration: `locations`
+- [x] Set up Supabase and migration tooling
+- [x] Migration: `locations`
 - [ ] Migration: `forecast_providers`
 - [ ] Migration: `forecast_runs`
 - [ ] Migration: `forecast_points` with unique constraints against duplicates

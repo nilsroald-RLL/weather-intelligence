@@ -13,6 +13,16 @@ later.
 Work in progress toward the next version. Move items up into a dated version heading
 when the iteration ships.
 
+### Added
+
+- Next.js (App Router) application scaffold with TypeScript, Tailwind CSS, ESLint,
+  and Prettier, plus stricter compiler settings
+  (`noUncheckedIndexedAccess`, `noImplicitReturns`, `noFallthroughCasesInSwitch`).
+- Environment schema (Zod) validated at server startup via `src/instrumentation.ts`,
+  covering every variable in `.env.example`.
+- Supabase migration tooling (`supabase/config.toml`) and the first migration,
+  creating the `locations` table.
+
 ## [0.1.0] - 2026-07-11
 
 ### Added
