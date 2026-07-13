@@ -25,11 +25,11 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 ### Project setup
 
 - [x] Scaffold Next.js (App Router) with TypeScript and strict settings
-- [ ] Add Tailwind CSS and a lightweight component system (shadcn/ui) — Tailwind is in; shadcn/ui not added yet
+- [x] Add Tailwind CSS and a lightweight component system (shadcn/ui)
 - [x] Add ESLint, Prettier, and strict TypeScript config
 - [x] Add the environment schema and validate it at startup
-- [ ] Add Vitest or Jest and a first smoke test
-- [ ] Add Playwright and a first end-to-end smoke test
+- [x] Add Vitest or Jest and a first smoke test
+- [x] Add Playwright and a first end-to-end smoke test
 
 ### Database
 
@@ -41,7 +41,7 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 - [ ] Migration: `weather_stations`
 - [ ] Migration: `location_station_mappings`
 - [ ] Migration: `observations`
-- [ ] Seed the two locations with geocoded coordinates and elevation
+- [x] Seed the two locations with geocoded coordinates and elevation
 - [ ] Add indexes on location, provider, target time, and horizon
 
 ### Authentication

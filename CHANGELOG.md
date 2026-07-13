@@ -22,6 +22,14 @@ when the iteration ships.
   covering every variable in `.env.example`.
 - Supabase migration tooling (`supabase/config.toml`) and the first migration,
   creating the `locations` table.
+- shadcn/ui component system (base library, Nova preset), with Button and Card
+  wired into the placeholder home page.
+- Seed migration for Leiligheten and Hytta with coordinates from OpenStreetMap
+  Nominatim and elevation from the EU-DEM 25m dataset.
+- Vitest with a smoke test for the environment schema, and Playwright with a
+  smoke test for the home page.
+- The dev and start scripts bind to `127.0.0.1` instead of all interfaces, to
+  avoid a Windows Firewall prompt on machines without admin rights.
 
 ## [0.1.0] - 2026-07-11
 
