@@ -21,7 +21,7 @@ function requireSupabaseConfig() {
 /**
  * Refreshes the Supabase session cookie on every request and guards
  * /admin and /login. Scoped to just those two paths by the matcher in
- * src/middleware.ts.
+ * src/proxy.ts.
  */
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
