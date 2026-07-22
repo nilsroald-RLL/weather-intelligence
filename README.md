@@ -21,9 +21,12 @@ forecast horizon, what weather is most likely to occur?
 
 ## Current version and status
 
-**Version:** 0.1.0
-**Status:** Foundation and documentation stage. The application itself has not been
-built yet.
+**Version:** 0.2.0
+**Status:** App scaffold and data model stage. The Next.js app runs locally with
+Tailwind, shadcn/ui, and a validated environment schema; email-and-password
+sign-in via Supabase Auth is gated by an approved-user allow-list and guards
+`/admin`; both locations are seeded in Supabase with coordinates and elevation.
+Forecast data is not wired up yet.
 
 The project moves forward one versioned iteration at a time. See `docs/roadmap.md`
 for the version plan and the release ritual, `docs/implementation-plan.md` for the

@@ -16,7 +16,7 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 - [x] Write `docs/implementation-plan.md`
 - [x] Write `docs/backlog.md`
 - [x] Write `.env.example`
-- [ ] Confirm Supabase project and credentials
+- [x] Confirm Supabase project and credentials
 - [ ] Confirm MET Norway Frost client credential and a descriptive User-Agent
 - [ ] Confirm deployment target and scheduler choice
 
@@ -46,9 +46,10 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 ### Authentication
 
-- [ ] Implement initial auth (magic link, passkey, or approved-user list)
-- [ ] Apply row-level security where appropriate
-- [ ] Keep admin controls off any public surface
+- [x] Implement initial auth (email + password via Supabase Auth, gated by an
+      approved-user list)
+- [x] Apply row-level security where appropriate
+- [x] Keep admin controls off any public surface
 
 ### Yr / MET Norway provider
 
