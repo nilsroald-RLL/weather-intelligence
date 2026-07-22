@@ -16,7 +16,7 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 - [x] Write `docs/implementation-plan.md`
 - [x] Write `docs/backlog.md`
 - [x] Write `.env.example`
-- [ ] Confirm Supabase project and credentials
+- [x] Confirm Supabase project and credentials
 - [ ] Confirm MET Norway Frost client credential and a descriptive User-Agent
 - [ ] Confirm deployment target and scheduler choice
 
@@ -24,31 +24,32 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 ### Project setup
 
-- [ ] Scaffold Next.js (App Router) with TypeScript and strict settings
-- [ ] Add Tailwind CSS and a lightweight component system (shadcn/ui)
-- [ ] Add ESLint, Prettier, and strict TypeScript config
-- [ ] Add the environment schema and validate it at startup
-- [ ] Add Vitest or Jest and a first smoke test
-- [ ] Add Playwright and a first end-to-end smoke test
+- [x] Scaffold Next.js (App Router) with TypeScript and strict settings
+- [x] Add Tailwind CSS and a lightweight component system (shadcn/ui)
+- [x] Add ESLint, Prettier, and strict TypeScript config
+- [x] Add the environment schema and validate it at startup
+- [x] Add Vitest or Jest and a first smoke test
+- [x] Add Playwright and a first end-to-end smoke test
 
 ### Database
 
-- [ ] Set up Supabase and migration tooling
-- [ ] Migration: `locations`
+- [x] Set up Supabase and migration tooling
+- [x] Migration: `locations`
 - [ ] Migration: `forecast_providers`
 - [ ] Migration: `forecast_runs`
 - [ ] Migration: `forecast_points` with unique constraints against duplicates
 - [ ] Migration: `weather_stations`
 - [ ] Migration: `location_station_mappings`
 - [ ] Migration: `observations`
-- [ ] Seed the two locations with geocoded coordinates and elevation
+- [x] Seed the two locations with geocoded coordinates and elevation
 - [ ] Add indexes on location, provider, target time, and horizon
 
 ### Authentication
 
-- [ ] Implement initial auth (magic link, passkey, or approved-user list)
-- [ ] Apply row-level security where appropriate
-- [ ] Keep admin controls off any public surface
+- [x] Implement initial auth (email + password via Supabase Auth, gated by an
+      approved-user list)
+- [x] Apply row-level security where appropriate
+- [x] Keep admin controls off any public surface
 
 ### Yr / MET Norway provider
 

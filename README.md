@@ -21,9 +21,12 @@ forecast horizon, what weather is most likely to occur?
 
 ## Current version and status
 
-**Version:** 0.1.0
-**Status:** Foundation and documentation stage. The application itself has not been
-built yet.
+**Version:** 0.2.0
+**Status:** App scaffold and data model stage. The Next.js app runs locally with
+Tailwind, shadcn/ui, and a validated environment schema; email-and-password
+sign-in via Supabase Auth is gated by an approved-user allow-list and guards
+`/admin`; both locations are seeded in Supabase with coordinates and elevation.
+Forecast data is not wired up yet.
 
 The project moves forward one versioned iteration at a time. See `docs/roadmap.md`
 for the version plan and the release ritual, `docs/implementation-plan.md` for the
@@ -79,14 +82,28 @@ npm install
 # copy the environment template and fill in values
 cp .env.example .env.local
 
-# run database migrations (tooling to be added during Phase 1)
+# link to your Supabase project once, then push migrations to it
+npx supabase link --project-ref <your-project-ref>
 npm run db:migrate
 
 # start the development server
 npm run dev
 ```
 
-Open the app on `http://localhost:3000`.
+Open the app on `http://127.0.0.1:3000`.
+
+Migrations are pushed straight to the linked hosted Supabase project with
+`supabase db push`; the local Docker-based Supabase stack (`supabase start`) is
+not required and is not assumed to be available.
+
+### Why the dev server binds to 127.0.0.1
+
+`npm run dev` and `npm run start` pass `-H 127.0.0.1` so Next.js binds only to
+localhost instead of all network interfaces. On a locked-down machine without
+admin rights, binding to all interfaces triggers a Windows Firewall prompt that
+can't be dismissed without elevated privileges. Binding to `127.0.0.1` avoids
+that prompt entirely; the app is still fully reachable at
+`http://127.0.0.1:3000`, just not from other devices on the network.
 
 ## Environment variables
 

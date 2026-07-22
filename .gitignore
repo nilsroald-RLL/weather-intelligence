@@ -30,3 +30,7 @@ npm-debug.log*
 
 # Supabase local
 supabase/.temp/
+
+# TypeScript / Next.js generated
+*.tsbuildinfo
+next-env.d.ts
