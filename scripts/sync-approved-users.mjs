@@ -4,10 +4,10 @@
 //   npm run auth:sync-users
 //
 // For each address it: records it in public.approved_emails, and creates a
-// matching Supabase auth user if one doesn't already exist. Sign-in
-// (signInWithOtp with shouldCreateUser: false) only succeeds for addresses
-// that already have an auth user, so this script is what actually grants
-// access - editing approved_emails by hand is not enough.
+// matching Supabase auth user if one doesn't already exist (with no password
+// set yet - run `npm run auth:set-password -- <email>` afterwards so that
+// address can actually sign in). Editing approved_emails by hand is not
+// enough on its own, since login also requires a real auth user.
 
 import { createClient } from "@supabase/supabase-js";
 

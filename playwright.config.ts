@@ -22,7 +22,6 @@ export default defineConfig({
       // validates and the server can boot without real provider credentials.
       NEXT_PUBLIC_APP_NAME: "Weather Intelligence",
       APP_TIMEZONE: "Europe/Oslo",
-      NEXT_PUBLIC_SITE_URL: BASE_URL,
       NEXT_PUBLIC_SUPABASE_URL: "https://example.supabase.co",
       NEXT_PUBLIC_SUPABASE_ANON_KEY: "anon-key",
       SUPABASE_SERVICE_ROLE_KEY: "service-role-key",

@@ -7,14 +7,14 @@ import { Input } from "@/components/ui/input";
 
 type LoginSearchParams = {
   next?: string;
-  sent?: string;
   error?: string;
 };
 
 const ERROR_MESSAGES: Record<string, string> = {
-  invalid: "Skriv inn en gyldig e-postadresse.",
+  invalid: "Skriv inn e-post og passord.",
   "not-approved": "Denne e-postadressen er ikke godkjent for pålogging.",
-  system: "Kunne ikke sende pålogging-lenke. Sjekk Supabase-oppsettet i .env.local.",
+  "invalid-credentials": "Feil e-post eller passord.",
+  system: "Noe gikk galt. Sjekk Supabase-oppsettet i .env.local.",
 };
 
 export default async function LoginPage({
@@ -42,16 +42,9 @@ export default async function LoginPage({
         <Card className="w-full">
           <CardHeader>
             <CardTitle>Logg inn</CardTitle>
-            <CardDescription>
-              Skriv inn en godkjent e-postadresse, så sender vi en pålogging-lenke.
-            </CardDescription>
+            <CardDescription>Skriv inn en godkjent e-postadresse og passord.</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
-            {params.sent && (
-              <p className="text-sm text-muted-foreground">
-                Sjekk e-posten din for en pålogging-lenke.
-              </p>
-            )}
             {errorMessage && <p className="text-sm text-destructive">{errorMessage}</p>}
             <form action={signIn} className="flex flex-col gap-3">
               <input type="hidden" name="next" value={next} />
@@ -63,8 +56,15 @@ export default async function LoginPage({
                 placeholder="din@epost.no"
                 aria-label="E-postadresse"
               />
+              <Input
+                type="password"
+                name="password"
+                required
+                placeholder="Passord"
+                aria-label="Passord"
+              />
               <Button type="submit" className="w-full">
-                Send pålogging-lenke
+                Logg inn
               </Button>
             </form>
           </CardContent>

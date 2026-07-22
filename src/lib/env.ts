@@ -4,14 +4,13 @@ const envSchema = z
   .object({
     NEXT_PUBLIC_APP_NAME: z.string().min(1),
     APP_TIMEZONE: z.string().min(1),
-    NEXT_PUBLIC_SITE_URL: z.string().url(),
 
     NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
     SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
 
-    // Comma-separated allow-list for magic-link sign-in. Kept in env rather than
-    // hardcoded so real email addresses never land in a committed migration.
+    // Comma-separated allow-list for sign-in. Kept in env rather than hardcoded
+    // so real email addresses never land in a committed migration.
     APPROVED_LOGIN_EMAILS: z
       .string()
       .min(1, "Provide at least one approved sign-in email")

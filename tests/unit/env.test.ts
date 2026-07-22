@@ -4,7 +4,6 @@ import { parseEnv } from "@/lib/env";
 const validEnv = {
   NEXT_PUBLIC_APP_NAME: "Weather Intelligence",
   APP_TIMEZONE: "Europe/Oslo",
-  NEXT_PUBLIC_SITE_URL: "http://127.0.0.1:3000",
   NEXT_PUBLIC_SUPABASE_URL: "https://example.supabase.co",
   NEXT_PUBLIC_SUPABASE_ANON_KEY: "anon-key",
   SUPABASE_SERVICE_ROLE_KEY: "service-role-key",
