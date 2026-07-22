@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { env } from "@/lib/env";
+import { safeNextPath } from "@/lib/safe-next-path";
 import { createSupabaseServiceRoleClient } from "@/lib/supabase/admin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -11,15 +12,9 @@ const emailSchema = z
   .transform((value) => value.trim().toLowerCase())
   .pipe(z.string().email());
 
-function safeNextPath(value: FormDataEntryValue | null): string {
-  const path = typeof value === "string" ? value : "";
-  // Only ever redirect within this app; an absolute or protocol-relative
-  // value in `next` must never be followed.
-  return path.startsWith("/") && !path.startsWith("//") ? path : "/admin";
-}
-
 export async function signIn(formData: FormData) {
-  const next = safeNextPath(formData.get("next"));
+  const nextField = formData.get("next");
+  const next = safeNextPath(typeof nextField === "string" ? nextField : undefined);
   const parsedEmail = emailSchema.safeParse(formData.get("email"));
 
   if (!parsedEmail.success) {
