@@ -12,6 +12,7 @@
     "db:migrate": "supabase db push",
     "db:migration:new": "supabase migration new",
     "auth:sync-users": "node --env-file=.env.local scripts/sync-approved-users.mjs",
+    "auth:set-password": "node --env-file=.env.local scripts/set-user-password.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test"
