@@ -21,12 +21,13 @@ forecast horizon, what weather is most likely to occur?
 
 ## Current version and status
 
-**Version:** 0.3.0
-**Status:** Yr forecasts on screen. Signing in shows real, current Yr / MET Norway
-forecasts for both Leiligheten and Hytta: current conditions and a seven-day view,
-backed by immutable forecast snapshots in Supabase. Storm is a visible placeholder.
-Forecast ingestion runs via a `CRON_SECRET`-protected endpoint, triggered manually
-for now rather than on a real schedule.
+**Version:** 0.4.0
+**Status:** Real observations and station selection. Each location now has a
+documented primary and fallback Frost station per variable (`docs/station-selection.md`),
+chosen by distance, elevation match, and live completeness rather than
+proximity alone. Observation ingestion runs via a `CRON_SECRET`-protected
+endpoint, verified live; the selection is visible on `/admin`. Actual observed
+weather is not shown next to the Yr forecast on the home screen yet.
 
 The project moves forward one versioned iteration at a time. See `docs/roadmap.md`
 for the version plan and the release ritual, `docs/implementation-plan.md` for the

@@ -38,9 +38,9 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 - [x] Migration: `forecast_providers`
 - [x] Migration: `forecast_runs`
 - [x] Migration: `forecast_points` with unique constraints against duplicates
-- [ ] Migration: `weather_stations`
-- [ ] Migration: `location_station_mappings`
-- [ ] Migration: `observations`
+- [x] Migration: `weather_stations`
+- [x] Migration: `location_station_mappings`
+- [x] Migration: `observations`
 - [x] Seed the two locations with geocoded coordinates and elevation
 - [x] Add indexes on location, provider, target time, and horizon
 
@@ -62,17 +62,18 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 ### Frost observations
 
-- [ ] Implement the Frost adapter and `NormalizedObservation` type
-- [ ] Discover candidate stations near each location
-- [ ] Record distance, elevation difference, available variables, completeness
-- [ ] Select a primary station per variable with rationale
-- [ ] Never treat missing values, especially precipitation, as zero
+- [x] Implement the Frost adapter and `NormalizedObservation` type
+- [x] Discover candidate stations near each location
+- [x] Record distance, elevation difference, available variables, completeness
+- [x] Select a primary station per variable with rationale
+- [x] Never treat missing values, especially precipitation, as zero
 
 ### Scheduled jobs
 
 - [~] Forecast ingestion job, idempotent (built and verified live; not yet on a
       real three-hour schedule - triggered manually)
-- [ ] Observation ingestion job, hourly after a short delay, idempotent
+- [~] Observation ingestion job, idempotent (built and verified live; not yet on
+      a real hourly schedule - triggered manually)
 - [x] Protect job endpoints with `CRON_SECRET`
 - [~] Log job runs and surface failures (captured in `forecast_runs.response_status`
       / `error_message`; no admin view surfaces it yet)
@@ -81,7 +82,7 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 - [x] Home screen with the two location cards
 - [x] Seven-day Yr view per location
-- [ ] Show the selected observation station
+- [x] Show the selected observation station
 - [x] Storm placeholder state
 - [ ] Minimal admin view for provider and job status
 - [ ] Deploy with working scheduled jobs
@@ -89,7 +90,7 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 ### Docs
 
 - [ ] `docs/data-sources.md`
-- [ ] `docs/station-selection.md` with the chosen stations and rationale
+- [x] `docs/station-selection.md` with the chosen stations and rationale
 - [ ] `docs/forecast-snapshot-methodology.md`
 
 ## Phase 2: Forecast history and accuracy
