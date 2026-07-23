@@ -1,0 +1,92 @@
+{
+  "type": "Feature",
+  "geometry": { "type": "Point", "coordinates": [10.7805, 59.8823, 119] },
+  "properties": {
+    "meta": {
+      "updated_at": "2026-07-23T07:33:42Z",
+      "units": { "air_temperature": "celsius" }
+    },
+    "timeseries": [
+      {
+        "time": "2026-07-23T08:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_pressure_at_sea_level": 1015.5,
+              "air_temperature": 16,
+              "cloud_area_fraction": 9.5,
+              "relative_humidity": 38.5,
+              "wind_from_direction": 32,
+              "wind_speed": 2.5,
+              "wind_speed_of_gust": 6.2
+            }
+          },
+          "next_1_hours": {
+            "summary": { "symbol_code": "clearsky_day" },
+            "details": {
+              "precipitation_amount": 0,
+              "probability_of_precipitation": 0,
+              "probability_of_thunder": 0
+            }
+          },
+          "next_6_hours": {
+            "summary": { "symbol_code": "clearsky_day" },
+            "details": {
+              "air_temperature_max": 23.1,
+              "air_temperature_min": 17.7,
+              "precipitation_amount": 0,
+              "probability_of_precipitation": 0
+            }
+          },
+          "next_12_hours": {
+            "summary": { "symbol_code": "partlycloudy_day", "symbol_confidence": "certain" },
+            "details": { "probability_of_precipitation": 0 }
+          }
+        }
+      },
+      {
+        "time": "2026-07-25T12:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_pressure_at_sea_level": 997.3,
+              "air_temperature": 19.1,
+              "cloud_area_fraction": 87,
+              "relative_humidity": 55.2,
+              "wind_from_direction": 187,
+              "wind_speed": 7.9
+            }
+          },
+          "next_6_hours": {
+            "summary": { "symbol_code": "rain" },
+            "details": {
+              "air_temperature_max": 19.4,
+              "air_temperature_min": 17.2,
+              "precipitation_amount": 3,
+              "probability_of_precipitation": 44
+            }
+          },
+          "next_12_hours": {
+            "summary": { "symbol_code": "lightrain", "symbol_confidence": "somewhat certain" },
+            "details": { "probability_of_precipitation": 66 }
+          }
+        }
+      },
+      {
+        "time": "2026-08-02T06:00:00Z",
+        "data": {
+          "instant": {
+            "details": {
+              "air_pressure_at_sea_level": 1014.5,
+              "air_temperature": 14.7,
+              "cloud_area_fraction": 94.5,
+              "relative_humidity": 83.5,
+              "wind_from_direction": 194.1,
+              "wind_speed": 2.4
+            }
+          }
+        }
+      }
+    ]
+  }
+}
