@@ -21,12 +21,12 @@ forecast horizon, what weather is most likely to occur?
 
 ## Current version and status
 
-**Version:** 0.2.0
-**Status:** App scaffold and data model stage. The Next.js app runs locally with
-Tailwind, shadcn/ui, and a validated environment schema; email-and-password
-sign-in via Supabase Auth is gated by an approved-user allow-list and guards
-`/admin`; both locations are seeded in Supabase with coordinates and elevation.
-Forecast data is not wired up yet.
+**Version:** 0.3.0
+**Status:** Yr forecasts on screen. Signing in shows real, current Yr / MET Norway
+forecasts for both Leiligheten and Hytta: current conditions and a seven-day view,
+backed by immutable forecast snapshots in Supabase. Storm is a visible placeholder.
+Forecast ingestion runs via a `CRON_SECRET`-protected endpoint, triggered manually
+for now rather than on a real schedule.
 
 The project moves forward one versioned iteration at a time. See `docs/roadmap.md`
 for the version plan and the release ritual, `docs/implementation-plan.md` for the
