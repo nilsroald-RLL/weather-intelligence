@@ -13,6 +13,38 @@ later.
 Work in progress toward the next version. Move items up into a dated version heading
 when the iteration ships.
 
+## [0.4.0] - 2026-07-23
+
+### Added
+
+- `weather_stations`, `location_station_mappings`, and `observations` tables, RLS
+  and Data API grants written alongside each table this time. `observations`
+  grants `service_role` `select, insert` only, no `update` or `delete` - the same
+  immutability enforcement as `forecast_points`.
+- Frost observation adapter (`FROST_CLIENT_ID`, Basic Auth): fetches a station's
+  recent observations, validates the response with Zod against the real API shape
+  (verified live), and normalises into one row per timestamp. Frost can report the
+  same element more than once per timestamp (different sensor heights or an
+  overlapping series); the adapter resolves this by preferring the lowest quality
+  code, a general tiebreak rather than a hardcoded sensor height per station.
+- Station discovery and selection for both locations: distance, signed elevation
+  difference, available variables, and live completeness were checked for every
+  candidate, a primary plus a fallback station was chosen per variable, and the
+  full method and rationale are written up in `docs/station-selection.md`.
+  Elevation dominated the choice for Hytta - a live comparison showed the
+  best-elevation-matched candidate (930m, 14.9km away) reading materially cooler
+  than a closer but 559m-lower alternative, consistent with the expected lapse
+  rate.
+- `POST /api/jobs/ingest-observations`, protected by `CRON_SECRET`, fetching every
+  distinct station currently mapped to any location (a station serving several
+  variables is only fetched once) and inserting idempotently. Not on a real
+  schedule yet; triggered manually for this iteration.
+- The selected station, its distance, and its elevation difference are now shown
+  on `/admin` for each location and variable, including the written
+  selection_reason.
+- Unit tests for Frost schema validation and normalisation, using a real captured
+  response.
+
 ## [0.3.0] - 2026-07-23
 
 ### Added
@@ -97,7 +129,8 @@ when the iteration ships.
 - `docs/roadmap.md` with the versioned roadmap, strategy, and release ritual.
 - `.env.example` environment template and `.gitignore`.
 
-[Unreleased]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/nilsroald-RLL/weather-intelligence/releases/tag/v0.1.0
