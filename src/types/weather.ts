@@ -43,6 +43,29 @@ export type NormalizedForecast = {
   rawPayload: unknown;
 };
 
+// docs/product-spec.md section 8. locationId is optional here even though
+// the spec shows it as required: an observation is intrinsically a property
+// of a station, not a location (a station could in principle serve more
+// than one location), which is also why the observations table has no
+// location_id column - only station_id. Left undefined during normalization
+// and only meaningful if a caller happens to know which location's mapping
+// triggered a given fetch.
+export type NormalizedObservation = {
+  locationId?: string;
+  stationId: string;
+  observedAt: string;
+  airTemperatureC?: number;
+  precipitationAmountMm?: number;
+  windSpeedMps?: number;
+  windGustMps?: number;
+  windDirectionDeg?: number;
+  relativeHumidityPct?: number;
+  airPressureHpa?: number;
+  qualityCode?: string;
+  sourceProvider: string;
+  retrievedAt: string;
+};
+
 export type ProviderHealth = {
   providerId: string;
   status: "healthy" | "degraded" | "down";
