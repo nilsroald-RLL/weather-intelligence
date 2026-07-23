@@ -35,14 +35,14 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 - [x] Set up Supabase and migration tooling
 - [x] Migration: `locations`
-- [ ] Migration: `forecast_providers`
-- [ ] Migration: `forecast_runs`
-- [ ] Migration: `forecast_points` with unique constraints against duplicates
+- [x] Migration: `forecast_providers`
+- [x] Migration: `forecast_runs`
+- [x] Migration: `forecast_points` with unique constraints against duplicates
 - [ ] Migration: `weather_stations`
 - [ ] Migration: `location_station_mappings`
 - [ ] Migration: `observations`
 - [x] Seed the two locations with geocoded coordinates and elevation
-- [ ] Add indexes on location, provider, target time, and horizon
+- [x] Add indexes on location, provider, target time, and horizon
 
 ### Authentication
 
@@ -53,12 +53,12 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 ### Yr / MET Norway provider
 
-- [ ] Define the `ForecastProvider` interface and `NormalizedForecastPoint` type
-- [ ] Implement `MetNorwayProvider` fetch with a descriptive User-Agent
-- [ ] Validate responses with Zod
-- [ ] Store raw payloads separately from normalised data
-- [ ] Normalise into forecast points and compute horizon from issue/retrieval time
-- [ ] Insert immutable forecast points, never overwriting
+- [x] Define the `ForecastProvider` interface and `NormalizedForecastPoint` type
+- [x] Implement `MetNorwayProvider` fetch with a descriptive User-Agent
+- [x] Validate responses with Zod
+- [x] Store raw payloads separately from normalised data
+- [x] Normalise into forecast points and compute horizon from issue/retrieval time
+- [x] Insert immutable forecast points, never overwriting
 
 ### Frost observations
 
@@ -70,17 +70,19 @@ Legend: `[ ]` not started, `[~]` in progress, `[x]` done.
 
 ### Scheduled jobs
 
-- [ ] Forecast ingestion job, every three hours, idempotent
+- [~] Forecast ingestion job, idempotent (built and verified live; not yet on a
+      real three-hour schedule - triggered manually)
 - [ ] Observation ingestion job, hourly after a short delay, idempotent
-- [ ] Protect job endpoints with `CRON_SECRET`
-- [ ] Log job runs and surface failures
+- [x] Protect job endpoints with `CRON_SECRET`
+- [~] Log job runs and surface failures (captured in `forecast_runs.response_status`
+      / `error_message`; no admin view surfaces it yet)
 
 ### UI (slice)
 
-- [ ] Home screen with the two location cards
-- [ ] Seven-day Yr view per location
+- [x] Home screen with the two location cards
+- [x] Seven-day Yr view per location
 - [ ] Show the selected observation station
-- [ ] Storm placeholder state
+- [x] Storm placeholder state
 - [ ] Minimal admin view for provider and job status
 - [ ] Deploy with working scheduled jobs
 

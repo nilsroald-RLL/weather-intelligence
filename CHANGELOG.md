@@ -13,6 +13,41 @@ later.
 Work in progress toward the next version. Move items up into a dated version heading
 when the iteration ships.
 
+## [0.3.0] - 2026-07-23
+
+### Added
+
+- `MetNorwayProvider`: fetches the Locationforecast "complete" product with the
+  required `MET_USER_AGENT` and MET's recommended coordinate rounding, validates
+  the response with Zod against the real API shape (verified live), and normalises
+  into `NormalizedForecastPoint`. Missing lookahead data (`next_1/6/12_hours`) stays
+  undefined rather than zero.
+- `forecast_providers`, `raw_forecast_payloads`, `forecast_runs`, and
+  `forecast_points` tables, seeded with the `met-norway` provider row. RLS and the
+  matching Data API grants are added alongside each table this time. The three
+  historical tables grant `service_role` `select, insert` only, no `update` or
+  `delete`, so "never overwrite a forecast snapshot" is enforced by Postgres
+  permissions, not just application discipline.
+- `POST /api/jobs/ingest-forecasts`, protected by `CRON_SECRET`, running an
+  idempotent job that fetches both locations sequentially and records a
+  `forecast_runs` row - success or failure - so a fetch or validation problem is
+  visible rather than silently dropped. Not on a real schedule yet; triggered
+  manually for this iteration.
+- Oslo-calendar-day aggregation for the seven-day view (DST-safe via
+  `Intl.DateTimeFormat` with an explicit time zone) and a "closest to now" pick for
+  current conditions.
+- Home screen showing real current conditions and a seven-day forecast for both
+  locations, with Storm shown as a fixed "Ikke tilgjengelig ennå" placeholder.
+- Unit tests for schema validation against a real captured MET Norway response,
+  normalisation fallback logic, Oslo date-key grouping across a DST boundary, and
+  daily aggregation.
+
+### Changed
+
+- The home page now requires sign-in and redirects to `/login` for a signed-out
+  visitor, instead of showing a static placeholder - `locations` and the forecast
+  tables are authenticated-read only.
+
 ## [0.2.0] - 2026-07-22
 
 ### Added
@@ -62,6 +97,7 @@ when the iteration ships.
 - `docs/roadmap.md` with the versioned roadmap, strategy, and release ritual.
 - `.env.example` environment template and `.gitignore`.
 
-[Unreleased]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/nilsroald-RLL/weather-intelligence/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/nilsroald-RLL/weather-intelligence/releases/tag/v0.1.0
